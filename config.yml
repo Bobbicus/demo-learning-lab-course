@@ -20,11 +20,11 @@ steps:
     actions:
       - type: getTree
         action_id: tree
-        sha: '%payload.pull_request.head.sha%'
+        sha: '%payload.ref%'
         recursive: true
       - type: gate
         left: '%actions.tree.data.tree%'
-        right: 'path:new-branch/readme.md'
+        right: 'path:new-branch/test'
         operator: includes
       - type: respond
         with: new-issue.md
