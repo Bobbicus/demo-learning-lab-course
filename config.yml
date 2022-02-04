@@ -17,10 +17,10 @@ steps:
       title: Crea una rama
       description: Crea una rama para introducir nuevos cambios. 
   event: create
-  link: '{{ repoUrl }}/issues/1'
+  link: '{{ repoUrl }}/issues/2'
   actions:
   - type: respond
-    issue: Your first contribution
+    issue: issue2
     with: branch-create.md
     data:
       thePayload: '%payload%'
@@ -33,10 +33,10 @@ steps:
       title: Confirma un archivo
       description: Confirma un archivo a tu rama. 
   event: push
-  link: '{{ repoUrl }}/issues/1'
+  link: '{{ repoUrl }}/issues/2'
   actions:
   - type: respond
-    issue: Your first contribution
+    issue: issue2
     with: branch-create.md
     data:
       branch: '%payload.ref%'
