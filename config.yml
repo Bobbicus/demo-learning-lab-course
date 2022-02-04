@@ -30,3 +30,4 @@ steps:
         with: new-issue.md
     event: push
     description: Create a new branch
+    link: 'link: ''{{ repoUrl }}/issues/2'''
