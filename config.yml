@@ -10,24 +10,35 @@ before:
     title: Welcome!
     body: new-issue.md
 steps:
-  - title: First step
-    description: The first step in your course
-    event: issues.assigned
-    link: '{{ repoUrl }}'
-    actions:
-      - type: closeIssue
-  - title: New Branch
-    actions:
-      - type: getTree
-        action_id: tree
-        sha: '%payload.ref%'
-        recursive: true
-      - type: gate
-        left: '%actions.tree.data.tree%'
-        right: 'path:new-branch/test'
-        operator: includes
-      - type: respond
-        with: new-issue.md
-    event: push
-    description: Create a new branch
-    link: 'link: ''{{ repoUrl }}/issues/2'''
+- title: Create a branch
+  description: Create a branch for introducing new changes.
+  translations:
+    es:
+      title: Crea una rama
+      description: Crea una rama para introducir nuevos cambios. 
+  event: create
+  link: '{{ repoUrl }}/issues/2'
+  actions:
+  - type: respond
+    issue: Your first contribution
+    with: branch-create.md
+    data:
+      thePayload: '%payload%'
+
+# 5
+- title: Commit a file
+  description: Commit your file to the branch.
+  translations:
+    es:
+      title: Confirma un archivo
+      description: Confirma un archivo a tu rama. 
+  event: push
+  link: '{{ repoUrl }}/issues/2'
+  actions:
+  - type: respond
+    issue: Your first contribution
+    with: branch-create.md
+    data:
+      branch: '%payload.ref%'
+      url: '%payload.repository.html_url%/compare/%payload.ref%?expand=1'
+ 
