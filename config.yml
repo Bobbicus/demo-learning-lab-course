@@ -1,0 +1,18 @@
+title: demo-learning-lab
+description: >-
+  A Lab to demo how to create a basic learning lab with Learning Bot auto
+  repsonse
+template:
+  repo: demo-learning-lab-template
+  name: demo-learning-lab
+before:
+  - type: createIssue
+    title: Welcome!
+    body: new-issue.md
+steps:
+  - title: First step
+    description: The first step in your course
+    event: issues.assigned
+    link: '{{ repoUrl }}'
+    actions:
+      - type: closeIssue
