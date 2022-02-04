@@ -9,11 +9,3 @@ before:
   - type: createIssue
     title: Welcome!
     body: new-issue.md
-steps:
-  - title: New step
-    actions:
-      - type: gate
-        left: '"%actions.tree.data.tree%"'
-        operator: includes
-        right: 'path:new-branch/reademe.md'
-    event: push
