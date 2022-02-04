@@ -16,3 +16,17 @@ steps:
     link: '{{ repoUrl }}'
     actions:
       - type: closeIssue
+  - title: New Branch
+    actions:
+      - type: getTree
+        action_id: tree
+        sha: '%payload.pull_request.head.sha%'
+        recursive: true
+      - type: gate
+        left: '%actions.tree.data.tree%'
+        right: 'path:new-branch/readme.md'
+        operator: includes
+      - type: respond
+        with: new-issue.md
+    event: push
+    description: Create a new branch
