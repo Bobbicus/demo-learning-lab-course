@@ -17,7 +17,7 @@ steps:
       title: Crea una rama
       description: Crea una rama para introducir nuevos cambios. 
   event: create
-  link: '{{ repoUrl }}/issues/2'
+  link: '{{ repoUrl }}/issues/1'
   actions:
   - type: respond
     issue: Your first contribution
@@ -33,7 +33,7 @@ steps:
       title: Confirma un archivo
       description: Confirma un archivo a tu rama. 
   event: push
-  link: '{{ repoUrl }}/issues/2'
+  link: '{{ repoUrl }}/issues/1'
   actions:
   - type: respond
     issue: Your first contribution
